@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  max-width: 1488px;
+  margin: 0 auto;
+  min-height: 114px;
+  align-items: center;
+}
+
+.menu {
+}
+
+.list {
+  display: flex;
+}
+
+.item {
+  gap: 30px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--black);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.item:not(:last-child)::after {
+  content: "/";
+  margin-left: 18px;
+  margin-right: 18px;
+}

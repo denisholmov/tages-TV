@@ -1,0 +1,53 @@
+.item {
+  width: 336px;
+  height: 352px;
+  border: 1px solid var(--super-silver);
+}
+
+img {
+  margin: 9px auto 23px;
+}
+
+.inf {
+  margin-left: 12px;
+}
+
+.code {
+  margin-bottom: 5px;
+  font-size: 10px;
+  color: var(--argent);
+}
+
+.title {
+  margin-bottom: 7px;
+  font-size: 16px;
+  color: var(--black);
+}
+
+.itemFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .price {
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 400;
+
+    .oldPrice {
+      text-decoration: line-through;
+      color: var(--argent);
+    }
+
+    .currentPrice {
+      color: var(--black);
+    }
+  }
+
+  .options {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+  }
+}

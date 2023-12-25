@@ -1,0 +1,22 @@
+body {
+  background-color: var(--color-white);
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 1488px;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--black);
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.items {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 48px;
+}
