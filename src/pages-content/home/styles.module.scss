@@ -8,15 +8,3 @@ body {
   margin: 0 auto;
 }
 
-.title {
-  color: var(--black);
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.items {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 48px;
-}

@@ -3,15 +3,10 @@ import { useDispatch } from "react-redux";
 import {
   setMaterialSort,
   setPriceSort,
-} from "../../../../redux/slices/filterSlice";
+} from "../../../../../../redux/slices/filterSlice";
 import styles from "./styles.module.scss";
 
 export const Sort = () => {
-  //   const [sortPriceSelect, setSortPriceSelect] = React.useState(null); // это состояние куда записывается сортировка цен
-  //   const [sortOptionSelect, setSortOptionSelect] = React.useState(null); // сюда записывает сортировка по материалу
-
-  //   const sortPrice = useSelector((state) => state.filter.priceSort);
-  //   const sortMaterial = useSelector((state) => state.filter.materialSort);
   const dispatch = useDispatch();
 
   const handleSelectChangePrice = (e) => {

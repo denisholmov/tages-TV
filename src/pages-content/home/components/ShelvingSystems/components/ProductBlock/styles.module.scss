@@ -49,5 +49,15 @@ img {
     display: flex;
     gap: 20px;
     padding-right: 20px;
+
+    .check {
+      cursor: pointer;
+    }
+    .cart {
+      cursor: pointer;
+    }
+    .heart {
+      cursor: pointer;
+    }
   }
 }
