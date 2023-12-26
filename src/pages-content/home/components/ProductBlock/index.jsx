@@ -5,7 +5,10 @@ import { ReactComponent as Heart } from "../../../../assets/images/heart.svg";
 import styles from "./styles.module.scss";
 
 export const ProductBlock = ({ item }) => {
-  const oldPrice = item.price.current_price;
+  const oldPrice = item.price.old_price;
+  function checkOldPrice(oldPrice) {
+    return oldPrice;
+  }
 
   return (
     <div className={styles.item}>
@@ -18,10 +21,14 @@ export const ProductBlock = ({ item }) => {
         <div className={styles.itemFooter}>
           <div className={styles.price}>
             {oldPrice && (
-              <p className={styles.oldPrice}>{item.price.old_price}</p>
+              <p className={styles.oldPrice}>
+                {Math.floor(checkOldPrice(item.price.old_price))}
+              </p>
             )}
 
-            <p className={styles.currentPrice}>{item.price.current_price}</p>
+            <p className={styles.currentPrice}>
+              {Math.floor(item.price.current_price)}
+            </p>
           </div>
 
           <div className={styles.options}>

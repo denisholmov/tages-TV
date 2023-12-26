@@ -19,7 +19,7 @@
       "code": "L423WH",
       "price": {
         "old_price": 400.9,
-        "current_price": 355
+        "current_price": 355.555
       },
       "image": {
         "url": "https://i.ibb.co/89d2DCd/pic2.png"
@@ -71,7 +71,7 @@
       "code": null,
       "price": {
         "old_price": null,
-        "current_price": 355
+        "current_price": 355.555
       },
       "image": {
         "url": "https://i.ibb.co/89d2DCd/pic2.png"
