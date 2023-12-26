@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "./components/Header";
 import { Sort } from "./components/Sort";
 import { ProductBlock } from "./components/ProductBlock";
+import { useSelector } from "react-redux";
 
 import styles from "./styles.module.scss";
 
@@ -15,6 +16,39 @@ export const HomePageContent = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  const sortPrice = useSelector((state) => state.filter.priceSort);
+  const sortMaterial = useSelector((state) => state.filter.materialSort);
+
+  function compareFunctionPrice(sortPrice) {
+    console.log(sortPrice);
+    if (sortPrice === "1") {
+      return (a, b) => a.price.current_price - b.price.current_price;
+    } else if (sortPrice === "2") {
+      return (a, b) => b.price.current_price - a.price.current_price;
+    }
+  }
+
+  //   function compareFunctionMaterial(item, sortMaterial) {
+  //     if (sortMaterial === "1" && ) {
+  //       return item;
+  //     } else if (sortMaterial === "2" && item.material === "2") {
+  //       return item;
+  //     } else return item;
+  //   }
+
+  function compareFunctionMaterial(item, sortMaterial) {
+    if (sortMaterial === 0) {
+      return true; // возвращает true для всех элементов массива
+    } else if (item.material === sortMaterial) {
+      return true; // возвращает true только если item.material равен sortMaterial
+    } else {
+      return false; // возвращает false для остальных случаев
+    }
+  }
+
+  const sortedItems = [...itemProduct].sort(compareFunctionPrice(sortPrice));
+  //  .sort(compareFunctionMaterial(sortMaterial));
+
   return (
     <div className={styles.wrapper}>
       <Header />
@@ -24,9 +58,11 @@ export const HomePageContent = () => {
             <h1 className={styles.title}>Комплекты стеллажных систем</h1>
             <Sort />
             <div className={styles.items}>
-              {itemProduct.map((item) => (
-                <ProductBlock item={item} key={item.id} />
-              ))}
+              {sortedItems
+                .filter((item) => compareFunctionMaterial(item, sortMaterial))
+                .map((item) => (
+                  <ProductBlock item={item} key={item.id} />
+                ))}
             </div>
           </div>
         </div>

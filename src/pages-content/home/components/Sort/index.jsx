@@ -16,17 +16,19 @@ export const Sort = () => {
 
   const handleSelectChangePrice = (e) => {
     const selectedValuePrice = e.target.value;
+    console.log(selectedValuePrice);
     dispatch(setPriceSort(selectedValuePrice));
   };
 
-  const handleSelectChangeOption = (e) => {
-    const selectedValueOption = e.target.value;
-    dispatch(setMaterialSort(selectedValueOption));
+  const handleSelectChangeMaterial = (e) => {
+    const selectedValueMaterial = e.target.value;
+    console.log(selectedValueMaterial);
+    dispatch(setMaterialSort(Number(selectedValueMaterial)));
   };
 
   return (
     <div className={styles.sort}>
-      <div className={styles.sortPrice}>
+      <div className={styles.sortPrices}>
         <p>Сортировать по:</p>
 
         <div className={styles.sortSelect}>
@@ -35,6 +37,7 @@ export const Sort = () => {
             className={styles.select}
             onChange={handleSelectChangePrice}
           >
+            <option value="0"> </option>
             <option value="1">Цена по возрастанию</option>
             <option value="2">Цена по убыванию</option>
           </select>
@@ -45,10 +48,11 @@ export const Sort = () => {
         <p>Материал</p>
         <div className={styles.sortSelect}>
           <select
-            name="select-option"
+            name="select-material"
             className={styles.select}
-            onChange={handleSelectChangeOption}
+            onChange={handleSelectChangeMaterial}
           >
+            <option value="0"> </option>
             <option value="2">Металл</option>
             <option value="1">Дерево</option>
           </select>

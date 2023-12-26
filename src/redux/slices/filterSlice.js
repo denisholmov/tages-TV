@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  //   productId: 0,
-  priceSort: "по возрастанию",
-  materialSort: "металл",
+  priceSort: 0,
+  materialSort: 0,
 };
 
 export const filterSlice = createSlice({
