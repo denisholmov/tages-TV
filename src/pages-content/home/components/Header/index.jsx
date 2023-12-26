@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 export const Header = () => {
@@ -8,13 +9,19 @@ export const Header = () => {
         <nav className={styles.menu}>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <a href="#">Главная</a>
+              <Link to="/main" className={styles.link}>
+                Главная
+              </Link>
             </li>
             <li className={styles.item}>
-              <a href="#">Системы хранения</a>
+              <Link to="/storage-systems" className={styles.link}>
+                Системы хранения
+              </Link>
             </li>
             <li className={styles.item}>
-              <a href="#">Комплекты стеллажных систем</a>
+              <Link to="/" className={styles.link}>
+                Комплекты стеллажных систем
+              </Link>
             </li>
           </ul>
         </nav>
