@@ -14,7 +14,9 @@ export const ProductBlock = ({ item }) => {
   return (
     <div className={styles.item}>
       <img className={styles.image} src={item.image.url} alt="" />
-      <div className={styles.inf}>
+      <div
+        className={`${styles.inf} ${item.code != null ? "" : styles.infIndent}`}
+      >
         <p className={styles.code}>{item.code}</p>
         <h2 className={styles.title}>{item.name}</h2>
 

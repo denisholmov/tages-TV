@@ -6,9 +6,6 @@
   align-items: center;
 }
 
-.menu {
-}
-
 .list {
   display: flex;
 }
@@ -22,8 +19,12 @@
 
   font-size: 16px;
   font-weight: 400;
+  color: var(--lunar-shadow);
+  text-shadow: -1px 3px 4px rgba(0, 0, 0, 0.3);
+}
+
+.active {
   color: var(--black);
-  text-shadow: -1px 3px 8px rgba(0, 0, 0, 0.6);
 }
 
 .item:not(:last-child)::after {
