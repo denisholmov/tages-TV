@@ -1,12 +1,27 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  setMaterialSort,
+  setPriceSort,
+} from "../../../../redux/slices/filterSlice";
 import styles from "./styles.module.scss";
 
 export const Sort = () => {
-  const [sortPriceSelect, setSortPriceSelect] = React.useState(null); // это состояние куда записывается сортировка цен
+  //   const [sortPriceSelect, setSortPriceSelect] = React.useState(null); // это состояние куда записывается сортировка цен
+  //   const [sortOptionSelect, setSortOptionSelect] = React.useState(null); // сюда записывает сортировка по материалу
 
-  const handleSelectChange = (e) => {
-    const selectedValue = e.target.value;
-    setSortPriceSelect(selectedValue);
+  //   const sortPrice = useSelector((state) => state.filter.priceSort);
+  //   const sortMaterial = useSelector((state) => state.filter.materialSort);
+  const dispatch = useDispatch();
+
+  const handleSelectChangePrice = (e) => {
+    const selectedValuePrice = e.target.value;
+    dispatch(setPriceSort(selectedValuePrice));
+  };
+
+  const handleSelectChangeOption = (e) => {
+    const selectedValueOption = e.target.value;
+    dispatch(setMaterialSort(selectedValueOption));
   };
 
   return (
@@ -18,7 +33,7 @@ export const Sort = () => {
           <select
             name="select-price"
             className={styles.select}
-            onChange={handleSelectChange}
+            onChange={handleSelectChangePrice}
           >
             <option value="1">Цена по возрастанию</option>
             <option value="2">Цена по убыванию</option>
@@ -28,9 +43,16 @@ export const Sort = () => {
 
       <div className={styles.sortMaterials}>
         <p>Материал</p>
-        <select className="">
-          <option value=""></option>
-        </select>
+        <div className={styles.sortSelect}>
+          <select
+            name="select-option"
+            className={styles.select}
+            onChange={handleSelectChangeOption}
+          >
+            <option value="2">Металл</option>
+            <option value="1">Дерево</option>
+          </select>
+        </div>
       </div>
     </div>
   );

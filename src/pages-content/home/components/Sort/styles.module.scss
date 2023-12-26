@@ -1,9 +1,57 @@
 .sort {
   display: flex;
+  gap: 30px;
   flex-direction: row;
   margin-bottom: 30px;
 
   .sortPrice {
+    .sortSelect {
+      position: relative;
+    }
+    .sortSelect:before {
+      content: url("../../../../../public/img/arrow.svg");
+      position: absolute;
+      top: 35%;
+      right: 15px;
+      transform: translateY(-50%);
+
+      display: block;
+      width: 17px;
+      height: 10px;
+
+      pointer-events: none;
+    }
+
+    .select {
+      width: 288px;
+      height: 40px;
+      padding-left: 16px;
+      padding-right: 30px;
+
+      background-color: var(--bleached-silk);
+      border: none;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--black);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select::-ms-expand {
+      display: none;
+    }
+
+    option {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--black);
+    }
+  }
+
+  .sortMaterials {
     .sortSelect {
       position: relative;
     }
