@@ -42,14 +42,18 @@ export const ProductBlock = ({ item }) => {
   }, []); // этот useEffect занимается отображением данных из localStorage при первой отрисовке
 
   React.useEffect(() => {
-    // Проверяем, есть ли конкретный элемент в localStorage
-    const hasStoredArray = JSON.parse(localStorage.getItem("array"));
-
-    const hasItem = hasStoredArray.some((itemHasStoredArray) => {
-      return Number(itemHasStoredArray.id) === Number(item.id);
-    });
-    setShowItemLocalStorage(!hasItem);
-  }, [arrayLocalStorage]); // этот useEffect изменяет отрисовку компонентов
+	// Проверяем, есть ли конкретный элемент в localStorage
+	const hasStoredArray = JSON.parse(localStorage.getItem("array"));
+ 
+	if (hasStoredArray) {
+	  const hasItem = hasStoredArray.some((itemHasStoredArray) => {
+		 return Number(itemHasStoredArray.id) === Number(item.id);
+	  });
+	  setShowItemLocalStorage(!hasItem);
+	} else {
+	  setShowItemLocalStorage(true);
+	}
+ }, [arrayLocalStorage]); // этот useEffect изменяет отрисовку компонентов
 
   return (
     <div className={styles.item}>
