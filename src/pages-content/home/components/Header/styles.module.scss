@@ -32,3 +32,11 @@
   margin-left: 18px;
   margin-right: 18px;
 }
+
+// @media -------------------
+@media (max-width: 1920px) {
+  .container {
+    max-width: 1300px;
+    text-align: center;
+  }
+}
