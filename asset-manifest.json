@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/tages-TV/static/css/main.3f288b6f.css",
+    "main.js": "/tages-TV/static/js/main.3ba92539.js",
+    "static/media/cart.svg": "/tages-TV/static/media/cart.81e996ba56ad8b329db7b96dd5e0ecb3.svg",
+    "static/media/heart.svg": "/tages-TV/static/media/heart.604230a47deb06378da2a49d91bd578c.svg",
+    "static/media/icon.svg": "/tages-TV/static/media/icon.96eb6644d6d7b90e719e7f79ecc41d97.svg",
+    "index.html": "/tages-TV/index.html",
+    "static/media/arrow.svg": "/tages-TV/static/media/arrow.3b66d6d4435805993220.svg",
+    "main.3f288b6f.css.map": "/tages-TV/static/css/main.3f288b6f.css.map",
+    "main.3ba92539.js.map": "/tages-TV/static/js/main.3ba92539.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f288b6f.css",
+    "static/js/main.3ba92539.js"
+  ]
+}
