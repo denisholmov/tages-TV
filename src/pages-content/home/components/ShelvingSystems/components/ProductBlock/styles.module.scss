@@ -1,4 +1,6 @@
 .item {
+  position: relative;
+  z-index: 1;
   width: 336px;
   height: 352px;
   border: 1px solid var(--super-silver);

@@ -6,7 +6,7 @@ import {
 } from "../../../../../../redux/slices/filterSlice";
 import styles from "./styles.module.scss";
 
-export const Sort = () => {
+export const Sort = ({ itemMaterials }) => {
   const dispatch = useDispatch();
 
   const handleSelectChangePrice = (e) => {
@@ -20,6 +20,7 @@ export const Sort = () => {
     console.log(selectedValueMaterial);
     dispatch(setMaterialSort(Number(selectedValueMaterial)));
   };
+
 
   return (
     <div className={styles.sort}>

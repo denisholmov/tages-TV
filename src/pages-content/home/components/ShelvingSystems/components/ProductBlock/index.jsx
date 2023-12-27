@@ -2,6 +2,8 @@ import React from "react";
 import { ReactComponent as Check } from "../../../../../../assets/images/icon.svg";
 import { ReactComponent as Heart } from "../../../../../../assets/images/heart.svg";
 import { ReactComponent as Cart } from "../../../../../../assets/images/cart.svg";
+import { Discount } from "./components/Discount";
+// import { useSelector } from "react-redux";
 
 import styles from "./styles.module.scss";
 
@@ -9,12 +11,14 @@ export const ProductBlock = ({ item }) => {
   const [arrayLocalStorage, setArrayLocalStorage] = React.useState([]);
   const [showItemLocalStorage, setShowItemLocalStorage] = React.useState(false);
 
+  //   const materialSort = useSelector((state) => state.filter.materialSort);
+
   const oldPrice = item.price.old_price;
   function checkOldPrice(oldPrice) {
     return oldPrice;
   }
 
-  function handleClick(item) {
+  function handleClickAddLocalStorage(item) {
     const storedArray = JSON.parse(localStorage.getItem("array")) || [];
     const newArray = [...storedArray, item];
 
@@ -22,7 +26,7 @@ export const ProductBlock = ({ item }) => {
     localStorage.setItem("array", JSON.stringify(newArray));
   } // эта функция запоминает данные из локалСтора и добавляет новое значение в локалСтор
 
-  function handleClickRemove(item) {
+  function handleClickRemoveLocalStorage(item) {
     const storedArray = JSON.parse(localStorage.getItem("array"));
     const newArray = storedArray.filter((element) => element.id !== item.id);
 
@@ -40,7 +44,6 @@ export const ProductBlock = ({ item }) => {
   React.useEffect(() => {
     // Проверяем, есть ли конкретный элемент в localStorage
     const hasStoredArray = JSON.parse(localStorage.getItem("array"));
-    console.log(hasStoredArray, "данные из localStorage");
 
     const hasItem = hasStoredArray.some((itemHasStoredArray) => {
       return Number(itemHasStoredArray.id) === Number(item.id);
@@ -50,6 +53,7 @@ export const ProductBlock = ({ item }) => {
 
   return (
     <div className={styles.item}>
+      <Discount item={item} />
       <img className={styles.image} src={item.image.url} alt="" />
       <div
         className={`${styles.inf} ${item.code != null ? "" : styles.infIndent}`}
@@ -73,11 +77,11 @@ export const ProductBlock = ({ item }) => {
           <div className={styles.options}>
             {showItemLocalStorage ? (
               <div className={styles.cart}>
-                <Cart onClick={() => handleClick(item)} />
+                <Cart onClick={() => handleClickAddLocalStorage(item)} />
               </div>
             ) : (
               <div className={styles.check}>
-                <Check onClick={() => handleClickRemove(item)} />
+                <Check onClick={() => handleClickRemoveLocalStorage(item)} />
               </div>
             )}
 

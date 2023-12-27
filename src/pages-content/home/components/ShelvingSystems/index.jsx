@@ -8,11 +8,17 @@ import styles from "./styles.module.scss";
 
 export const ShelvingSystems = () => {
   const [itemProduct, setItemProduct] = React.useState([]); // это состояние получения всех продуктов
+  const [itemMaterials, setItemMaterials] = React.useState([]); // состояние для получения материалов продуктов
 
   React.useEffect(() => {
     fetch("http://localhost:3001/items")
       .then((res) => res.json())
       .then((data) => setItemProduct(data))
+      .catch((error) => console.log(error));
+
+    fetch("http://localhost:3001/materials")
+      .then((res) => res.json())
+      .then((data) => setItemMaterials(data))
       .catch((error) => console.log(error));
   }, []);
 
@@ -43,7 +49,7 @@ export const ShelvingSystems = () => {
   return (
     <>
       <h1 className={styles.title}>Комплекты стеллажных систем</h1>
-      <Sort />
+      <Sort itemMaterials={itemMaterials} />
       <div className={styles.items}>
         {sortedItems
           .filter((item) => compareFunctionMaterial(item, sortMaterial))
